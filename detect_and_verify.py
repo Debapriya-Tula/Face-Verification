@@ -81,8 +81,8 @@ def verify_face(img, username):
     enc_pos = enc_pos/maxm
     enc_neg_1, enc_neg_2, enc_neg_3 = [enc/maxm for enc in [enc_neg_1, enc_neg_2, enc_neg_3]]
 
-    positive_loss = contrastive_loss(enc_anc, enc_pos).numpy()
-    negative_losses = [contrastive_loss(enc_anc, enc_neg).numpy() 
+    positive_loss = mean_squared_error(enc_anc, enc_pos).numpy()
+    negative_losses = [mean_squared_error(enc_anc, enc_neg).numpy() 
                         for enc_neg in [enc_neg_1, enc_neg_2, enc_neg_3]]
 
     flag = True
