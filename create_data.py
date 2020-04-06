@@ -21,7 +21,7 @@ def create_dataset():
         os.mkdir(path)
         
     # Image to be resized to this shape
-    (width, height) = (224, 224)     
+    (width, height) = (180, 200)     
     
     # Make the cascade classifier object
     face_cascade = cv2.CascadeClassifier(haar_file) 
