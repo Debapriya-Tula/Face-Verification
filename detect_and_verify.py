@@ -85,6 +85,7 @@ def verify_face(img, username):
     negative_losses = [mean_squared_error(enc_anc, enc_neg).numpy() 
                         for enc_neg in [enc_neg_1, enc_neg_2, enc_neg_3]]
 
+    # flag becomes false if the match is unsuccessful
     flag = True
     for neg_loss in negative_losses:
         if positive_loss > neg_loss:
@@ -97,4 +98,4 @@ def verify_face(img, username):
 # Here it is assumed that some app has provided with a webcam click called 'img' at the time of login.
 face_detected = detect_face(img)  
 # The username is provided at the time of login.
-flag = compare_face(face_detected, username)
+flag = verify_face(face_detected, username)
